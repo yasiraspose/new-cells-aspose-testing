@@ -2,22 +2,19 @@ using System;
 using Aspose.Cells;
 using Aspose.Cells.Utility;
 
-namespace AsposeCellsExamples
+class Program
 {
-    public class ExcelToPdfConverter
+    static void Main()
     {
-        public static void Run()
-        {
-            string sourcePath = "input.xlsx";
-            string destPath = "output.pdf";
+        // Path to the source XLSX file
+        string sourcePath = "input.xlsx";
 
-            ConversionUtility.Convert(sourcePath, destPath);
-            Console.WriteLine("Excel file has been successfully converted to PDF.");
-        }
+        // Desired path for the output PDF file
+        string destPath = "output.pdf";
 
-        public static void Main(string[] args)
-        {
-            Run();
-        }
+        // Convert the Excel workbook to PDF using Aspose.Cells ConversionUtility
+        ConversionUtility.Convert(sourcePath, destPath);
+
+        Console.WriteLine("Conversion completed successfully.");
     }
 }
