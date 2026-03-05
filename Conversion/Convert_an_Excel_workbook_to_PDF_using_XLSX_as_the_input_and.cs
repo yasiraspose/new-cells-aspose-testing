@@ -1,37 +1,23 @@
 using System;
 using Aspose.Cells;
+using Aspose.Cells.Utility;
 
 namespace AsposeCellsConversionDemo
 {
-    public class ExcelToPdfConverter
+    class Program
     {
-        /// <summary>
-        /// Converts an XLSX workbook to PDF.
-        /// </summary>
-        /// <param name="inputPath">Full path of the source XLSX file.</param>
-        /// <param name="outputPath">Full path where the PDF will be saved.</param>
-        public static void ConvertXlsxToPdf(string inputPath, string outputPath)
+        static void Main()
         {
-            // Load the existing Excel workbook from the specified file.
-            // This uses the Workbook(string) constructor rule.
-            Workbook workbook = new Workbook(inputPath);
+            // Path to the source Excel file (XLSX)
+            string sourcePath = "input.xlsx";
 
-            // Save the workbook as PDF.
-            // This uses the Workbook.Save(string, SaveFormat) rule.
-            workbook.Save(outputPath, SaveFormat.Pdf);
+            // Desired output PDF file path
+            string destPath = "output.pdf";
 
-            Console.WriteLine($"Conversion completed: \"{inputPath}\" -> \"{outputPath}\"");
-        }
+            // Convert the Excel workbook to PDF using the provided ConversionUtility method
+            ConversionUtility.Convert(sourcePath, destPath);
 
-        // Example usage
-        public static void Main()
-        {
-            // Define source XLSX and destination PDF file paths.
-            string sourceFile = "source.xlsx";
-            string destFile = "output.pdf";
-
-            // Perform the conversion.
-            ConvertXlsxToPdf(sourceFile, destFile);
+            Console.WriteLine("Excel file has been successfully converted to PDF.");
         }
     }
 }
