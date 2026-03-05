@@ -1,20 +1,23 @@
 using System;
 using Aspose.Cells;
-using Aspose.Cells.Utility;
 
-class Program
+namespace AsposeCellsConversionDemo
 {
-    static void Main()
+    public class Program
     {
-        // Path to the source XLSX file
-        string sourcePath = "input.xlsx";
+        public static void Main()
+        {
+            // Path to the source XLSX file
+            string sourcePath = "input.xlsx";
 
-        // Desired path for the output XPS file
-        string destPath = "output.xps";
+            // Desired output XPS file path
+            string destPath = "output.xps";
 
-        // Convert the Excel workbook to XPS format
-        ConversionUtility.Convert(sourcePath, destPath);
+            // Load the workbook and save it as XPS
+            var workbook = new Workbook(sourcePath);
+            workbook.Save(destPath, SaveFormat.Xps);
 
-        Console.WriteLine("Conversion completed successfully.");
+            Console.WriteLine($"Conversion completed: '{sourcePath}' → '{destPath}'");
+        }
     }
 }
